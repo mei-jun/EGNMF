@@ -80,10 +80,8 @@ if ~exist('U','var')
     U = [];
     V = [];
 end
-%前面是预处理，为了保证原始矩阵被处理时，数据不至于特别小，同时判断并赋值一下先决条件
 switch lower(options.Optimization)
     case {lower('Multiplicative')} 
-        %M 表示选择的是文本还是图像数据，文本数据选择M=0，图像数据选择非零即可，默认M=1
         [U_final, V_final, nIter_final, objhistory_final] =EGNMF_Multi(X, k, W,options, U, V);
     otherwise
         error('optimization method does not exist!');
